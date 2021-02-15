@@ -166,7 +166,7 @@ try {
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// Tip: Spread operator might be needed too.
-		const [a, b, c] = [arr[0], arr[2], arr.slice(3)]; 
+		const [a,, b, ...c] = arr; 
 
 		// Don't make changes below this line	
 		
@@ -205,7 +205,7 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		const [name, age, add] = [obj.name, obj.age, obj.add];
+		const {name, age, add} = obj;
 
 		// Don't make changes below this line	
 		
@@ -221,7 +221,7 @@ try {
   (function UseParameterDestructuring1() {
     // Adjust the code to let the test succeed.
 
-    const [...a] = ['Oslo', 985];
+    const a = ['Oslo', 985];
 
     // Don't make changes below this line
 
@@ -239,8 +239,7 @@ try {
   
   (function UseParameterDestructuring2() {
     // Adjust the code to let the test succeed.
-	let a;
-    ({...a} = {name: 'Oslo', age: 985});
+    const a = {name: 'Oslo', age: 985};
 
     // Don't make changes below this line
 
@@ -308,7 +307,7 @@ try {
 		// - Do NOT use Object.assign()
 		// - Do use object spread properties
 		// - Think about the order!
-		let result = { a: obj1.a, b: obj2.b, c: obj3.c, d: obj2.d, e: obj2.e };
+		const result = {...obj1, ...obj2, ...obj3, ...obj2, ...obj2};
 
 		// Don't make changes below this line	
 		
@@ -372,8 +371,7 @@ try {
   
 	(function UseTemplateStrings2() {
 		// Rewrite the line below to use a template string.
-		const nyLinje = "\n";
-		const text = `line 1${nyLinje}line 2`;
+		const text = `line 1\nline 2`;
 
 		// Don't make changes below this line	
 		
@@ -419,7 +417,7 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		let [a, b, c] = [obj.name, obj.age, obj.add];
+		let {name: a, age: b, add: c} = obj;
 
 		// Don't make changes below this line	
 		
@@ -491,14 +489,7 @@ try {
   
 	(function UseGeneratorFunction() {
 		// Rewrite the function below to be a generator function ("function*" and "yield").
-		function* range(start, end) {
-			let list = [];
-			while (start < end) {
-				list.push(start);
-				yield start++;
-			}
-			return list;
-		}	
+		function* range(start, end) { while (start < end) { yield start; start++; } } 
 
 		// Don't make changes below this line	
 
